@@ -19,6 +19,12 @@ describe('LoginComponent', () => {
 		expect(submit).toBeInTheDocument();
 	});
 
+	test('Show an error when input does not contain @', () => {
+		fireEvent.change(email, { target: { value: 'jeanCarlos.com' } });
+		fireEvent.click(submit);
+		expect(screen.getByText('Please enter a valid email address')).toBeInTheDocument();
+	});
+
 	test('it should allow typing in the email input', () => {
 		fireEvent.change(email, { target: { value: 'jean@gmail.com' } });
 		expect(email).toHaveValue('jean@gmail.com');
@@ -26,6 +32,6 @@ describe('LoginComponent', () => {
 
 	test('it should allow typing in the password input', () => {
 		fireEvent.change(password, { target: { value: '123456' } });
-        expect(password).toHaveValue("123456")
+		expect(password).toHaveValue('123456');
 	});
 });
