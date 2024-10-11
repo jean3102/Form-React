@@ -1,6 +1,6 @@
 import useLogin from '@/hooks/useLogin';
 import { useState } from 'react';
-
+import './styles/login.css';
 const Login = () => {
 	const { handleLogin, formData } = useLogin();
 	const [errorMessage, setErrorMessage] = useState('');
@@ -35,7 +35,7 @@ const Login = () => {
 	};
 
 	return (
-		<>
+		<section>
 			<h2>Login</h2>
 			<form onSubmit={handleSubmit}>
 				<input
@@ -60,7 +60,7 @@ const Login = () => {
 				</button>
 			</form>
 			{errorMessage && <p>{errorMessage}</p>}
-		</>
+		</section>
 	);
 };
 
