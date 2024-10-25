@@ -1,38 +1,7 @@
 import useLogin from '@/hooks/useLogin';
-import { useState } from 'react';
 import './styles/login.css';
 const Login = () => {
-	const { handleLogin, formData } = useLogin();
-	const [errorMessage, setErrorMessage] = useState('');
-
-	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
-		setErrorMessage('');
-
-		if (handleFormValidation()) {
-			console.log(formData);
-		}
-	};
-
-	const handleFormValidation = () => {
-		if (formData.email === '') {
-			setErrorMessage('Email is required');
-			return;
-		}
-
-		if (formData.email.indexOf('@') === -1) {
-			setErrorMessage('Please enter a valid email address');
-			return;
-		}
-
-		if (formData.password === '') {
-			setErrorMessage('Password is required');
-			return;
-		}
-
-		setErrorMessage('');
-		return true;
-	};
+	const { handleLogin, formData, errorMessage, handleSubmit } = useLogin();
 
 	return (
 		<section>
