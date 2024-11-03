@@ -17,7 +17,7 @@ Clone the repository and install dependencies:
 
 ```bash
 git clone https://github.com/your-username/login-component.git
-cd login-component
+cd Form-React
 npm install
 
 ```
